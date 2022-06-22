@@ -1,0 +1,22 @@
+﻿<DMSScript options="272">
+	<Name>StartElementsInView2</Name>
+	<Description></Description>
+	<Type>Automation</Type>
+	<Author>SKYLINE2\SvenDD</Author>
+	<CheckSets>FALSE</CheckSets>
+	<Folder></Folder>
+	<Category>0</Category>
+	<ExternalSourceUrl></ExternalSourceUrl>
+	<Protocols>
+	</Protocols>
+	<Memory>
+	</Memory>
+	<Parameters>
+	</Parameters>
+	<Script>
+		<Exe id="2" type="csharp">
+			<Value><![CDATA[[Project:StartElementsInView2_2]]]></Value>
+			<Message></Message>
+		</Exe>
+	</Script>
+</DMSScript>
