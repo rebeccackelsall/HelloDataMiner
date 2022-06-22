@@ -1,0 +1,42 @@
+# This is a basic workflow to help you get started with Actions
+
+name: DeployToDms
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      
+      - name: Skyline DataMiner Deploy Action
+        # You may pin to the exact commit or the version.
+        # uses: SkylineCommunications/Skyline-DataMiner-Deploy-Action@226817ebc4a78d73e8189abc9355eeab3daa7557
+        uses: SkylineCommunications/Skyline-DataMiner-Deploy-Action@v1.0.3
+        with:
+          # The API-key generated in the DCP Admin app as authentication for a certain DataMiner System, saved in a GitHub secret
+          api-key: ${{secrets.API_KEY}}
+          # The path to the .sln file of the solution. Atm only DataMiner Automation Script solutions are supported. E.g ./Example/Script.sln. Required for stages: All and Upload.
+          solution-path: AutomationScript.sln
+          # The chosen name of the package. E.g. MyPackageName.  Required for stages: All, Upload and Deploy.
+          package-name: HelloDataMiner
+          # The version number for the package (format A.B.C). E.g. 1.0.1.  Required for stages: All, Upload and Deploy.
+          version: 1.0.0
+
+
